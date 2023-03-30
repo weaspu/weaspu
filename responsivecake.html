@@ -131,27 +131,35 @@
             </div>
             <div class="col col-6">
                 <div class="form">
-                    <form >
+                    <form id="orderform">
                         <h3>Make An Order</h3>
                         <label>Email Address</label><br>
                         <input type="email" id="email" placeholder="Enter your email address" size="30" required><br><br>
                         <label>Name</label><br>
                         <input type="text" id="name" placeholder="Enter your name" size="30" required><br><br>
-                        <label>Address</label><br>
+                        <label>Full Address</label><br>
                         <input type="text" id="address" placeholder="Enter your full address" size="30" required ><br><br>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                              Items
-                            </a>
-                          
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <li>Action</li>
-                              <li>Another action</li>
-                              <li>Something else here</li>
-                            </ul>
-                          </div><br>
+                      
+                        
+                              <select id="select">
+                                <option>Select Items</option>
+                                  <option id="cake"> Cake</option>
+                                  <option id="coffee">Coffee</option>
+                                  <option id="dessert">Desserts</option>
+                              </select>
+                        
+            
+                        <br><br>
                         <label>Quantity</label><br>
-                        <input type="number" id="quantity" size="30" required><br><br><br>
+                        
+                        <input type="number" id="quantity" size="30">
+                        <button  onclick="addItem()">Add</button>
+                        <br>
+                        <ul id="order">
+
+                        </ul>
+                      
+                        <br><br>
                         <label for="message">Leave a Message</label><br>
                             <textarea id="message" name="message" rows="5" cols="30" placeholder="I love your service........."></textarea>
                           </label><br>
@@ -264,52 +272,5 @@
 <script src="js/script.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
-
-<script>
-  let slideIndex = 1;
-  showSlides(slideIndex);
-  
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-  
-  function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-  }
-  </script>
-  
-
-
-<script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
-      });
-    }
-    </script>
+<script src= "shop.js"></script>
 </html>
